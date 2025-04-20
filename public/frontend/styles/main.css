@@ -1,0 +1,465 @@
+body {
+  background-color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgb(0, 0, 0) ; 
+}
+
+/* Navbar */
+.nabar-brand img {
+  max-height: 50px;
+  }
+  
+
+  .navbar-light .navbar-nav .navbar-link {
+    color: rgb(3, 89, 129);
+
+    &.active {
+        font-weight: bold;
+        color: #eeeeee;
+    }
+}
+
+
+.btn-navbar-right{
+  margin-top: -10px !important;
+  margin-bottom: -8px !important;
+  margin-right: -5px !important;
+
+  height: 70px;
+  border-radius: 0;
+}
+
+.navbar .btn-login {
+  background-color: #005766;
+  color: #eeeeee;
+
+  &:hover {
+      background-color: rgb(8, 8, 104);
+      color: white;
+  }
+}
+
+/* Header */
+header {
+  padding: 190px 0 165px;
+  margin-top: -95px;
+  background-image: url(../images/backroundhead.png);
+  background-size: cover;
+}
+
+header h1,
+header p {
+  color: #fff;
+}
+
+header h1 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+header p {
+  font-size: 22px;
+}
+
+.btn-get-started {
+  background-color: #005766;
+  color: #fff;
+}
+
+.btn-get-started:hover {
+  background-color: #004f98;
+  color: #fff;
+}
+
+/* Statistik */
+.section-stats {
+  margin-top: -50px;
+  
+}
+.section-stats p {
+color: #000000;
+}
+.section-stats .stats-detail {
+  padding-top: 16px;  
+  color: #000000;
+  background-color: rgb(255, 255, 255);
+  padding-left: 60px;
+}
+
+/* Popular */
+.section-popular {
+  min-height: 540px;
+  background-color: #005766;
+  margin-top: -50px;
+  margin-bottom: -230px;
+}
+
+.section-popular-heading {
+  margin-top: 150px;
+}
+
+.section-popular-heading h2,
+.section-popular-heading p {
+  color: #fff;
+}
+
+.section-popular-heading h2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.section-popular-heading p {
+  font-size: 18px;
+}
+
+/*Trip*/
+.section-popular-content .section-popular-travel .card-travel {
+  min-height: 380px;
+  background-color: #000;
+  color: #fff;
+  padding: 30px;
+  background-size: cover;
+  margin-bottom: 20px;
+}
+
+.section-popular-content .section-popular-travel .travel-country {
+  font-size: 18px;
+  color: #fff;
+}
+
+.section-popular-content .section-popular-travel .travel-location {
+  font-size: 26px;
+  color: #fff;
+}
+
+.section-popular-content
+  .section-popular-travel
+  .travel-button
+  .btn-travel-details {
+  background-color: rgb(0, 120, 156);
+  color: #fff;
+}
+
+.section-popular-content
+  .section-popular-travel
+  .travel-button
+  .btn-travel-details:hover {
+  background-color: #005766;
+  color: #fff;
+}
+
+
+Coba .custom-card {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 300px;
+  min-height: 380px;
+  margin: 0 auto;
+  margin-bottom: -230px;
+  text-align: center;
+  color: #fff;
+}
+
+.custom-card .card-body {
+  background-size: cover;
+  color: #fff;
+}
+
+.custom-card .card-text {
+  font-size: x-large;
+}
+
+.custom-card .btn-custom {
+  margin-top: 225px;
+  background-color: #005766;
+  color: #fff;
+}
+
+.custom-card .btn-custom:hover {
+  background-color: rgb(0, 120, 156);
+}
+
+/*Sponsor*/
+.section-networks {
+  background-color: #fff;
+  margin-top: -170px;
+  padding-top: 240px;
+  padding-bottom: 50px;
+}
+.section-networks h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.section-networks img {
+  max-width: 100%;
+}
+
+/*Testimonial*/
+.section-testimonial-heading {
+  background: linear-gradient(#fff 0%, 
+  #f7f9ff 100%);
+  padding-top: 50px;
+  min-height: 506px;
+}
+
+.section-testimonial-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+
+.section-testimonial-content {
+  margin-top: -300px;
+  padding-bottom: 50px;
+}
+
+.section-testimonial-content .card-testimonial {
+  padding: 40px 20px 10px;
+  border-radius: 11px;
+  margin-bottom: 20px;
+}
+
+.section-testimonial-content .card-testimonial .testimonial-content {
+  min-height: 380px;
+}
+
+.section-testimonial-content .card-testimonial .testimonial-content .h3 {
+  font-size: 22px;
+}
+
+.section-testimonial-content
+  .card-testimonial
+  .testimonial-content
+  .testimonial {
+  font-weight: 300px;
+  font-size: 26px;
+  text-align: center;
+  color: #6e6e6e;
+}
+
+.section-testimonial-content .card-testimonial .testimonial-content .trip-to {
+  font-weight: normal;
+  font-size: 22px;
+  color: #6e6e6e;
+}
+
+.section-testimonial-content .card-testimonial .testimonial-content hr {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.testimonial-content img {
+  width: 100px;
+  height: 100px;
+}
+
+/*Footer*/
+.section-footer {
+  background-color: #fff;
+  margin-top: -100px;
+}
+
+.btn-need-help {
+  background-color: #fff;
+
+  &:hover {
+    background-color: #005766;
+    color: #fff;
+  }
+}
+
+.section-details-header {
+  min-height: 310px;
+  background: #e4e6eb;
+  margin-top: -70px;
+}
+
+.section-details-content {
+  margin-top: -210px;
+  min-height: 100vh;
+}
+
+/*Breadcrumb*/
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.breadcrumb-item {
+  &:active {
+    font-weight: bold;
+    color: #005766;
+  }
+}
+
+.card-details {
+  padding: 30px;
+  border-radius: 11px;
+}
+
+.card-details h1 {
+  font-size: 26px;
+}
+
+.card-details h2 {
+  font-size: 20px;
+}
+
+.card-details p {
+  font-size: 18px;
+  color: #b1b1b1;
+}
+
+.user-img {
+  width: 60px;
+}
+
+.bank-image {
+  float: left;
+}
+
+.card-right {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 0;
+}
+
+.features {
+  margin-top: 20px;
+}
+
+.features h3 {
+  font-size: 18px;
+  color: black;
+  margin-bottom: 0;
+}
+
+.features p {
+  margin-bottom: 0;
+}
+
+.description {
+  margin-left: 10px;
+  overflow: hidden;
+  float: left;
+}
+
+.features-image {
+  width: 45px;
+  height: 45px;
+  float: left;
+}
+
+.xzoom-container {
+  display: inline;
+}
+
+.xzoom {
+  width: 100%;
+  box-shadow: none;
+  margin-bottom: 10px;
+}
+
+.xactive {
+  border: 4px solid #005766;
+  box-shadow: none;
+}
+
+.member-image {
+  width: 40px;
+  height: 40px;
+}
+
+.join-container {
+  margin-top: -18px;
+}
+
+.trip-information th {
+  font-weight: bold;
+  font-size: 15px;
+  color:black;
+}
+
+.trip-information td {
+  font-weight: 300;
+  font-size: 18px;
+  color: #b1b1b1;
+}
+
+.trip-information h3 {
+  font-weight: 400;
+  font-size: 14px;
+  color: black;
+}
+
+.btn-join-now {
+  background-color: #005766;
+  color: #fff;
+
+  &:hover {
+    background-color: red;
+    color: #fff;
+  }
+}
+
+.disclaimer {
+  font-weight: 300;
+  font-size: 14px;
+  color: #b1b1b1;
+}
+
+.datepicker {
+  border-right: 0;
+}
+
+.input-group-apend .btn {
+  padding-right: 30px;
+}
+
+.btn-add-now {
+  background-color: #005766;
+  color: #fff;
+
+  &:hover {
+    background-color: rgb(203, 52, 14);
+    color: #fff;
+  }
+}
+
+.bank h3 {
+  font-size: 15px;
+}
+
+.btn-home-page {
+  border-radius: 11px;
+  background-color: #9a2205;
+  color: #fff;
+
+  &:hover {
+    background-color: #005766;
+    color: #fff;
+  }
+}
+
+.section-success {
+  height: 90vh;
+  margin-top: 150px;
+}
+
+.section-success h1 {
+  font-weight: 600;
+  font-size: 26px;
+  color: #005766;
+}
+
+.section-success p {
+  font-weight: 300;
+  font-size: 18px;
+  color: #b1b1b1;
+}
