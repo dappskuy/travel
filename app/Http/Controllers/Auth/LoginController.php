@@ -25,10 +25,10 @@ class LoginController extends Controller
             $request->session()->regenerate();
             
             if (Auth::user()->role === 'admin') {
-                return redirect()->intended('admin/dashboard');
+                return redirect()->intended('admin/dashboard')->with('success', 'Welcome back, Admin!');
             }
             
-            return redirect()->intended('/');
+            return redirect()->intended('/')->with('success', 'Welcome back!');
         }
 
         throw ValidationException::withMessages([
@@ -41,6 +41,6 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect('/')->with('success', 'You have been logged out successfully.');
     }
 } 

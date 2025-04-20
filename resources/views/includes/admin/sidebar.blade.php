@@ -1,45 +1,72 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-<!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-    <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-laugh-wink"></i>
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-plane"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">vynxtravel</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.dashboard') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Travel Management
     </div>
-    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-</a>
 
-<!-- Divider -->
-<hr class="sidebar-divider my-0">
+    <!-- Nav Item - Categories -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.categories') }}">
+            <i class="fas fa-fw fa-list"></i>
+            <span>Categories</span>
+        </a>
+    </li>
 
-<!-- Nav Item - Dashboard -->
-<li class="nav-item active">
-    <a class="nav-link" href="index.html">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
-</li>
-<li class="nav-item active">
-    <a class="nav-link" href="">
-        <i class="fas fa-solid fa-umbrella-beach"></i>
-        <span>Paket Travel</span></a>
-</li>
-<li class="nav-item active">
-    <a class="nav-link" href="index.html">
-        <i class="fas fa-solid fa-images"></i>
-        <span>Galeri Travel</span></a>
-</li>
-<li class="nav-item active">
-    <a class="nav-link" href="index.html">
-        <i class="fas fa-solid fa-money-bill-wave"></i>
-        <span>Transaksi</span></a>
-</li>
+    <!-- Nav Item - Packages -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.packages') }}">
+            <i class="fas fa-fw fa-suitcase"></i>
+            <span>Packages</span>
+        </a>
+    </li>
 
-<!-- Divider -->
-<hr class="sidebar-divider d-none d-md-block">
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
-<!-- Sidebar Toggler (Sidebar) -->
-<div class="text-center d-none d-md-inline">
-    <button class="rounded-circle border-0" id="sidebarToggle"></button>
-</div>
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        User Management
+    </div>
+
+    <!-- Nav Item - Users -->
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Users</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
 </ul>
 <!-- End of Sidebar -->
