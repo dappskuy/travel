@@ -60,6 +60,14 @@
         </a>
     </li>
 
+    <!-- Nav Item - Booking Management -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.bookings.index') }}">
+            <i class="fas fa-calendar-check"></i>
+            <span>Kelola Pemesanan</span>
+        </a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

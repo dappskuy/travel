@@ -33,53 +33,51 @@
                 </li>
             </ul>
 
-            @auth
-                <!-- Mobile Button - Logout -->
-                <form class="form-inline d-sm-block d-md-none" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    @if(auth()->user()->role === 'admin')
-                        <a href="{{ route('admin.dashboard') }}" class="btn btn-login my-2 my-sm-0 mr-2">
-                            Dashboard
+            <ul class="navbar-nav ml-auto">
+                @guest
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4 mr-2">
+                            Login
                         </a>
-                    @endif
-                    <button type="submit" class="btn btn-login my-2 my-sm-0">
-                        Logout
-                    </button>
-                </form>
-
-                <!-- Desktop Button - Logout -->
-                <form class="form-inline my-2 my-lg-0 d-none d-md-block" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    @if(auth()->user()->role === 'admin')
-                        <a href="{{ route('admin.dashboard') }}" class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4 mr-2">
-                            Dashboard
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('register') }}" class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
+                            Register
                         </a>
+                    </li>
+                @else
+                    @if(auth()->user()->role === 'admin')
+                        <li class="nav-item">
+                            <a href="{{ route('admin.dashboard') }}" class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4 mr-2">
+                                Dashboard
+                            </a>
+                        </li>
                     @endif
-                    <button type="submit" class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
-                        Logout
-                    </button>
-                </form>
-            @else
-                <!-- Mobile Button - Login/Register -->
-                <div class="form-inline d-sm-block d-md-none">
-                    <a href="{{ route('login') }}" class="btn btn-login my-2 my-sm-0 mr-2">
-                        Login
-                    </a>
-                    <a href="{{ route('register') }}" class="btn btn-login my-2 my-sm-0">
-                        Register
-                    </a>
-                </div>
-
-                <!-- Desktop Button - Login/Register -->
-                <div class="form-inline my-2 my-lg-0 d-none d-md-block">
-                    <a href="{{ route('login') }}" class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4 mr-2">
-                        Login
-                    </a>
-                    <a href="{{ route('register') }}" class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4">
-                        Register
-                    </a>
-                </div>
-            @endauth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('bookings.index') }}">
+                            <i class="fas fa-shopping-cart"></i> Pemesanan Saya
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i> {{ Auth::user()->full_name }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <!-- <a class="dropdown-item" href="{{ route('profile') }}">
+                                <i class="fas fa-user-circle"></i> Profil
+                            </a> -->
+                            <!-- <div class="dropdown-divider"></div> -->
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+            </ul>
         </div>
     </nav>
 </div>
