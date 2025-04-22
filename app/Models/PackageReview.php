@@ -10,7 +10,7 @@ class PackageReview extends Model
     use HasFactory;
 
     protected $primaryKey = 'review_id';
-    public $timestamps = true;
+    public $timestamps = false;
 
     protected $fillable = [
         'booking_id',
@@ -20,11 +20,6 @@ class PackageReview extends Model
         'comment'
     ];
 
-    public function booking()
-    {
-        return $this->belongsTo(Booking::class, 'booking_id');
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -33,5 +28,10 @@ class PackageReview extends Model
     public function package()
     {
         return $this->belongsTo(TravelPackage::class, 'package_id');
+    }
+
+    public function booking()
+    {
+        return $this->belongsTo(Booking::class, 'booking_id');
     }
 } 

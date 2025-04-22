@@ -12,6 +12,22 @@
     </div>
 
     <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <h6 class="m-0 font-weight-bold text-primary">Category List</h6>
+            <div>
+                <form class="d-none d-sm-inline-block form-inline">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for categories..."
+                            aria-label="Search" aria-describedby="basic-addon2" name="search" value="{{ request('search') }}">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -45,6 +61,11 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="mt-3">
+                {{ $categories->appends(request()->query())->links() }}
             </div>
         </div>
     </div>

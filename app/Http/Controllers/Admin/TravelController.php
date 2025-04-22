@@ -11,9 +11,21 @@ use Illuminate\Support\Facades\Storage;
 class TravelController extends Controller
 {
     // Category CRUD
-    public function categories()
+    public function categories(Request $request)
     {
-        $categories = TravelCategory::all();
+        $query = TravelCategory::query();
+        
+        // Apply search if provided
+        if ($request->has('search') && !empty($request->search)) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('category_id', 'like', "%{$search}%")
+                  ->orWhere('category_name', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+            });
+        }
+        
+        $categories = $query->latest()->paginate(10);
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -67,9 +79,26 @@ class TravelController extends Controller
     }
 
     // Package CRUD
-    public function packages()
+    public function packages(Request $request)
     {
-        $packages = TravelPackage::with('category')->get();
+        $query = TravelPackage::with('category');
+        
+        // Apply search if provided
+        if ($request->has('search') && !empty($request->search)) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('package_id', 'like', "%{$search}%")
+                  ->orWhere('package_name', 'like', "%{$search}%")
+                  ->orWhere('location', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%")
+                  ->orWhere('duration', 'like', "%{$search}%")
+                  ->orWhereHas('category', function($categoryQuery) use ($search) {
+                      $categoryQuery->where('category_name', 'like', "%{$search}%");
+                  });
+            });
+        }
+        
+        $packages = $query->latest()->paginate(10);
         return view('admin.packages.index', compact('packages'));
     }
 
@@ -85,7 +114,7 @@ class TravelController extends Controller
             'category_id' => 'required|exists:travel_categories,category_id',
             'package_name' => 'required|string|max:255',
             'description' => 'required|string',
-            'price' => 'required|numeric|min:0',
+            'price' => 'required|integer|min:0',
             'duration' => 'required|string',
             'location' => 'required|string',
             'include_facilities' => 'required|string',
@@ -122,7 +151,7 @@ class TravelController extends Controller
             'category_id' => 'required|exists:travel_categories,category_id',
             'package_name' => 'required|string|max:255',
             'description' => 'required|string',
-            'price' => 'required|numeric|min:0',
+            'price' => 'required|integer|min:0',
             'duration' => 'required|string',
             'location' => 'required|string',
             'include_facilities' => 'required|string',

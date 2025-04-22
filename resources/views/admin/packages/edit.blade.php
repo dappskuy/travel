@@ -46,7 +46,7 @@
 
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price', $package->price) }}" min="0" required>
+                    <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price', $package->price) }}" pattern="[0-9]+" title="Please enter a whole number (no decimal points)" required>
                     @error('price')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

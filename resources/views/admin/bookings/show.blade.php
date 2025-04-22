@@ -6,9 +6,17 @@
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Detail Pemesanan #{{ $booking->booking_id }}</h1>
-        <a href="{{ route('admin.bookings.index') }}" class="btn btn-secondary">
-            <i class="fas fa-arrow-left"></i> Kembali
-        </a>
+        <div>
+            <a href="{{ route('admin.bookings.index') }}" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </a>
+            <button type="button" 
+                    class="btn btn-primary ml-2" 
+                    data-toggle="modal" 
+                    data-target="#updateStatusModal">
+                <i class="fas fa-edit"></i> Update Status
+            </button>
+        </div>
     </div>
 
     <div class="row">
@@ -261,38 +269,78 @@
     </div>
 </div>
 
+<!-- Update Status Modal -->
+<div class="modal fade" id="updateStatusModal" tabindex="-1" role="dialog" aria-labelledby="updateStatusModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateStatusModalLabel">Update Status Pemesanan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('admin.bookings.update-status', $booking->booking_id) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="status">Status Pemesanan</label>
+                        <select class="form-control" id="status" name="status" required>
+                            <option value="pending" {{ $booking->status === 'pending' ? 'selected' : '' }}>Menunggu Konfirmasi</option>
+                            <option value="confirmed" {{ $booking->status === 'confirmed' ? 'selected' : '' }}>Dikonfirmasi</option>
+                            <option value="completed" {{ $booking->status === 'completed' ? 'selected' : '' }}>Selesai</option>
+                            <option value="cancelled" {{ $booking->status === 'cancelled' ? 'selected' : '' }}>Dibatalkan</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="notes">Catatan</label>
+                        <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <style>
 .timeline {
     position: relative;
-    padding-left: 1rem;
+    padding-left: 30px;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    left: 0;
+    left: 10px;
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: #e9ecef;
+    background: #e9ecef;
 }
 
 .timeline-item {
     position: relative;
-    padding-bottom: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .timeline-marker {
     position: absolute;
-    left: -0.5rem;
-    top: 0;
-    width: 1rem;
-    height: 1rem;
+    left: -30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
 }
 
 .timeline-content {
-    padding-left: 1rem;
+    padding-bottom: 20px;
+}
+
+.timeline-item:last-child .timeline-content {
+    padding-bottom: 0;
 }
 </style>
 @endsection 

@@ -28,7 +28,7 @@ class Booking extends Model
     protected $casts = [
         'booking_date' => 'date',
         'payment_date' => 'datetime',
-        'total_price' => 'decimal:2'
+        'total_price' => 'integer'
     ];
 
     public function user()

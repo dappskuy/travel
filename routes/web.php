@@ -40,6 +40,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
     Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
     Route::post('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
+
+    // Review routes
+    Route::post('/reviews', [App\Http\Controllers\ReviewController::class, 'store'])->name('reviews.store');
+    Route::put('/reviews/{review}', [App\Http\Controllers\ReviewController::class, 'update'])->name('reviews.update');
+    Route::delete('/reviews/{review}', [App\Http\Controllers\ReviewController::class, 'destroy'])->name('reviews.destroy');
 });
 
 // Admin routes
@@ -68,6 +73,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::put('/bookings/{id}/status', [AdminBookingController::class, 'updateStatus'])->name('bookings.update-status');
     Route::put('/bookings/{id}/payment-status', [AdminBookingController::class, 'updatePaymentStatus'])->name('bookings.update-payment-status');
     Route::put('/bookings/{id}/notes', [AdminBookingController::class, 'updateNotes'])->name('bookings.update-notes');
+    Route::put('/bookings/{id}/complete', [App\Http\Controllers\Admin\BookingController::class, 'complete'])->name('bookings.complete');
+    Route::delete('/bookings/{id}', [AdminBookingController::class, 'delete'])->name('bookings.delete');
+
+    // Review routes
+    Route::get('/reviews', [App\Http\Controllers\Admin\ReviewController::class, 'index'])->name('reviews.index');
+    Route::post('/reviews/{id}/reply', [App\Http\Controllers\Admin\ReviewController::class, 'reply'])->name('reviews.reply');
+    Route::delete('/reviews/{id}', [App\Http\Controllers\Admin\ReviewController::class, 'destroy'])->name('reviews.destroy');
 });
 
 route::get('details' , [DetailsController::class, 'index']);

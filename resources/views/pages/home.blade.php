@@ -59,8 +59,8 @@
     <section class="section-popular-content" id="popularContent">
         <div class="container">
             <div class="section-popular-travel row justify-content-center">
-                @foreach($packages as $package)
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                @foreach($packages as $index => $package)
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4 package-card {{ $index >= 4 ? 'hidden-package' : '' }}">
                     <div class="card h-100 border-0 shadow-sm hover-shadow transition">
                         <div class="position-relative overflow-hidden">
                             <img src="{{ asset('storage/' . $package->image_url) }}" 
@@ -108,6 +108,19 @@
                 </div>
                 @endforeach
             </div>
+            
+            @if(count($packages) > 4)
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <button id="showMoreBtn" class="btn btn-outline-primary px-4">
+                        <i class="fas fa-plus-circle me-2"></i>Show More Packages
+                    </button>
+                    <button id="showLessBtn" class="btn btn-outline-secondary px-4 d-none">
+                        <i class="fas fa-minus-circle me-2"></i>Show Less
+                    </button>
+                </div>
+            </div>
+            @endif
         </div>
     </section>
 
@@ -154,6 +167,18 @@
                             <p class="Testimonial">
                                 "{{ $review->comment }}"
                             </p>
+                            @if($review->admin_reply)
+                            <div class="admin-reply border-top pt-3 mt-3 text-start">
+                                <div class="d-flex align-items-center mb-2">
+                                    <span class="badge bg-primary me-2">
+                                        <i class="fas fa-headset me-1"></i>Admin
+                                    </span>
+                                </div>
+                                <p class="text-muted small fst-italic">
+                                    "{{ $review->admin_reply }}"
+                                </p>
+                            </div>
+                            @endif
                         </div>
                         <hr>
                         <p class="trip-to mt-2">
@@ -189,5 +214,36 @@
 .bg-gradient-primary {
     background: linear-gradient(45deg, #4e73df, #224abe);
 }
+.hidden-package {
+    display: none;
+}
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const showLessBtn = document.getElementById('showLessBtn');
+    const hiddenPackages = document.querySelectorAll('.hidden-package');
+    
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', function() {
+            hiddenPackages.forEach(package => {
+                package.style.display = 'block';
+            });
+            showMoreBtn.classList.add('d-none');
+            showLessBtn.classList.remove('d-none');
+        });
+    }
+    
+    if (showLessBtn) {
+        showLessBtn.addEventListener('click', function() {
+            hiddenPackages.forEach(package => {
+                package.style.display = 'none';
+            });
+            showLessBtn.classList.add('d-none');
+            showMoreBtn.classList.remove('d-none');
+        });
+    }
+});
+</script>
 @endsection

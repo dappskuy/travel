@@ -13,7 +13,6 @@ class HomeController extends Controller
         $packages = TravelPackage::with('category')
             ->where('is_active', true)
             ->orderBy('created_at', 'desc')
-            ->take(4)
             ->get();
 
         $reviews = PackageReview::with(['user', 'package'])

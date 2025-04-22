@@ -12,7 +12,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navb">
-            <ul class="navbar-nav ml-auto mr-3">
+            <!-- <ul class="navbar-nav ml-auto mr-3">
                 <li class="nav-item mx-md-2">
                     <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                 </li>
@@ -31,7 +31,7 @@
                 <li class="nav-item mx-md-2">
                     <a href="#" class="nav-link">Testimonial</a>
                 </li>
-            </ul>
+            </ul> -->
 
             <ul class="navbar-nav ml-auto">
                 @guest

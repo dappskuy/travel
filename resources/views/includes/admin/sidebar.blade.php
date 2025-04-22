@@ -45,26 +45,34 @@
     </li>
 
     <!-- Divider -->
-    <hr class="sidebar-divider">
+    <!-- <hr class="sidebar-divider"> -->
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <!-- <div class="sidebar-heading">
         User Management
-    </div>
+    </div> -->
 
     <!-- Nav Item - Users -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-users"></i>
             <span>Users</span>
         </a>
-    </li>
+    </li> -->
 
     <!-- Nav Item - Booking Management -->
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.bookings.index') }}">
-            <i class="fas fa-calendar-check"></i>
-            <span>Kelola Pemesanan</span>
+            <i class="fas fa-shopping-cart"></i>
+            <span>Pemesanan</span>
+        </a>
+    </li>
+
+    <!-- Nav Item - Review Management -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.reviews.index') }}">
+            <i class="fas fa-star"></i>
+            <span>Review</span>
         </a>
     </li>
 
