@@ -22,21 +22,21 @@
     <div class="container">
         <section class="section-stats row justify-content-center" id="stats">
             <div class="col-3 col-md-2 stats-detail">
-                <h2>21K</h2>
+                <h2>{{ number_format($stats['members']) }}</h2>
                 <p class="stat">Members</p>
             </div>
             <div class="col-3 col-md-2 stats-detail">
-                <h2>400</h2>
+                <h2>{{ number_format($stats['places']) }}</h2>
                 <p class="stats">Places</p>
             </div>
-            <div class="col-3 col-md-2 stats-detail">
-                <h2>5k</h2>
+            <!-- <div class="col-3 col-md-2 stats-detail">
+                <h2>{{ number_format($stats['hotels']) }}</h2>
                 <p class="stats">Hotels</p>
-            </div>
-            <div class="col-3 col-md-2 stats-detail">
-                <h2>5</h2>
+            </div> -->
+            <!-- <div class="col-3 col-md-2 stats-detail">
+                <h2>{{ number_format($stats['partners']) }}</h2>
                 <p class="stats">Partners</p>
-            </div>
+            </div> -->
         </section>
     </div>
 
